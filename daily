@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# This script looks up all archives on tarsnap with a date appended to them
+# if theres no current archive for todays date it does a backup
+
+declare -A archives
+archives[pictures]="$HOME/Pictures"
+archives[documents]="$HOME/Documents"
+archives[email]="$HOME/backup/email"
+
+TODAY=$(date +"%m-%d-%Y")
+CURRENT=$(tsnap --list-archives)
+
+for K in "${!archives[@]}"; do
+    if echo $CURRENT| grep -q $K-$TODAY; then
+        echo "Archive $K already backed up today"
+    else
+        tsnap -c -f $K-$TODAY $K
+    fi
+done
+

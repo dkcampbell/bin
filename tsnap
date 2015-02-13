@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# A wrapper around tarsnap so I don't have to constantly pass it the same
+# arguments. You could do this same thing with alias, but I don't syncup my
+# bashrc file between computers
+
 KEYFILE=$HOME/.tarsnap.`hostname`.key
 CACHE=$HOME/.tarsnap-cache/
 
