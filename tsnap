@@ -1,0 +1,6 @@
+#!/bin/bash
+
+KEYFILE=$HOME/.tarsnap.`hostname`.key
+CACHE=$HOME/.tarsnap-cache/
+
+tarsnap --keyfile $KEYFILE --cachedir $CACHE $*
