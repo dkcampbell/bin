@@ -1,5 +1,2 @@
 #!/bin/bash
-cd ~/octopress
-rake generate
-rsync -avz public/ ~/www/
 rsync -avze 'ssh -p 22' ~/www/ dan@compiledworks.com:/var/www
